@@ -38,7 +38,6 @@ train_file_path = cp['train_file_path']
 val_file_path = cp['val_file_path']
 using_old_model = cp['using_old_model'] == 'True'
 saving_new_model = cp['saving_new_model'] == 'True'
-step_size = int(cp['step_size'])
 lr_decay = float(cp['lr_decay'])
 lr = float(cp['lr'])
 momentum = float(cp['momentum'])
@@ -108,7 +107,6 @@ with warnings.catch_warnings(record=True) as warn_list:
     print("lr = " + str(lr))
     print("momentum = " + str(momentum))
     print("weight_decay = " + str(weight_decay))
-    print("Step size = " + str(step_size))
     print("lr_decay = " + str(lr_decay))
     print("patience = " + str(patience))
     print("-" * 20)
