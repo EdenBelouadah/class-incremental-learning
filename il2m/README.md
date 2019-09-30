@@ -29,6 +29,7 @@ Data used in the experiments is available here : https://drive.google.com/open?i
 * Python 2.7
 * Pytorch 1.0.0
 * Numpy 1.13.0
+* SkLearn 0.19.1
 
 
 ## How to run
