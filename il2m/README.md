@@ -32,29 +32,25 @@ Data used in the experiments is available here : https://drive.google.com/drive/
 
 ## How to run
 
-1. ### Training the first batch of classes from scratch
+1. ### Training the first batch of classes from scratch (better on GPU)
 
 ```
 python codes/scratch.py configs/scratch.cf
 ```
 
-2. ### Incremental Learning with Fine tuning
+2. ### IL with Fine tuning (better on GPU)
 
 ```
 python codes/ft.py configs/ft.cf
-
 ```
-3. ### Scores extraction for all batches of classes
+3. ### Scores extraction (better on GPU)
 
 ```
 python codes/features_extraction_b1.py configs/features_extraction_b1_train.cf
 python codes/features_extraction_b1.py configs/features_extraction_b1_val.cf
 python codes/features_extraction_ft.py configs/features_extraction_ft.cf
-
-
-
 ```
-4. ### IL2M
+4. ### IL2M (requires CPU only)
 You should provide the following parameters to the program: images_list_files_path, scores_path, b1_scores_path, dataset_name, S, P, K
 
 For example, for IL2M on ILSVRC1000 with 9 incremental states (10 states in total, each one having a number of classes = 100), with memory size 20000:
