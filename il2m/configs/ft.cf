@@ -1,0 +1,29 @@
+[ft.py]
+used_model = resnet18
+num_workers = 12
+gpu = 5
+old_batch_size=256
+new_batch_size=32
+val_batch_size=2
+starting_epoch=0
+num_epochs = 35
+step_size=40
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0001
+patience = 5
+##############################
+algo_name = ift_ilsvrc_s10_1k
+normalization_dataset_name = ilsvrc
+datasets_mean_std_file_path = images_list_files/datasets_mean_std.txt
+K = 1000
+train_files_dir = images_list_files/ilsvrc/S~10/unbalanced/train/
+dataset_files_dir = images_list_files/ilsvrc/S~10
+first_model_load_path =  /scratch_global/eden/models/basic/ilsvrc/ilsvrc_s10_batch1.pt
+############################## DO NOT CHANGE
+saving_intermediate_models = False
+models_save_dir = /scratch_global/eden/models/ift/ilsvrc/S~10/K~1000/
+#########################
+first_batch_number = 2
+last_batch_number = 10
