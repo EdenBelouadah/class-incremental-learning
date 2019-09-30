@@ -1,0 +1,15 @@
+[features_extraction_ft.py]
+num_workers = 6
+batch_size = 128
+gpu = 1
+features_size = 512
+normalization_dataset_name = ilsvrc
+first_batch_number = 2
+last_batch_number = 5
+P = 200
+S = 5
+datasets_mean_std_file_path = images_list_files/datasets_mean_std.txt
+models_load_path_prefix = /scratch_global/eden/models/ift/ilsvrc/S~5/K~5000/ift_ilsvrc_s5_5k_b
+train_images_list_dir = images_list_files/ilsvrc/S~5/unbalanced/train/K~5000/
+val_images_list_dir = images_list_files/ilsvrc/S~5/accumulated/val
+destination_dir = /scratch/eden/feat_scores_extract_for_ft/ilsvrc/S~5/K~5000
