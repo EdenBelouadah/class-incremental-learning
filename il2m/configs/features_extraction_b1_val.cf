@@ -5,9 +5,9 @@ gpu = 4
 features_size = 512
 normalization_dataset_name = ilsvrc
 
-datasets_mean_std_file_path = images_list_files/datasets_mean_std.txt
+datasets_mean_std_file_path = data/datasets_mean_std.txt
 
 used_model_num_classes = 200
 model_load_path = /scratch_global/eden/models/basic/ilsvrc/ilsvrc_s5_batch1.pt
-images_list = images_list_files/ilsvrc/S~5/batch1/val.lst
+images_list = data/images_list_files/ilsvrc/S~5/batch1/val.lst
 destination_dir = /scratch/eden/feat_scores_extract_for_first_batch/ilsvrc/S~5/val
