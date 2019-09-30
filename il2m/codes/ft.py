@@ -75,7 +75,6 @@ num_workers = int(cp['num_workers'])
 train_files_dir = cp['train_files_dir']
 dataset_files_dir = cp['dataset_files_dir']
 first_model_load_path = cp['first_model_load_path']
-step_size = int(cp['step_size'])
 lr_decay = float(cp['lr_decay'])
 lr = float(cp['lr'])
 momentum = float(cp['momentum'])
@@ -123,7 +122,6 @@ with warnings.catch_warnings(record=True) as warn_list:
     print("Number of epochs = " + str(num_epochs))
     print("momentum = " + str(momentum))
     print("weight_decay = " + str(weight_decay))
-    print("Step size = " + str(step_size))
     print("lr = " + str(lr))
     print("lr_decay = " + str(lr_decay))
     print("patience = " + str(patience))
@@ -255,7 +253,6 @@ with warnings.catch_warnings(record=True) as warn_list:
         criterion = nn.CrossEntropyLoss()
         optimizer_ft = optim.SGD(model_ft.parameters(), lr=batch_lr, momentum=momentum, weight_decay=weight_decay)
         scheduler = lr_scheduler.ReduceLROnPlateau(optimizer_ft, patience=patience, factor=lr_decay)
-        # scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=step_size, gamma=lr_decay)
 
 
         # Training
