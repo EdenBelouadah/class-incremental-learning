@@ -23,11 +23,12 @@ To cite this work:
 (todo)
 
 ## Data
-Data used in the experiments is available here : https://drive.google.com/drive/folders/1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3?usp=sharing
+Data used in the experiments is available here : https://drive.google.com/open?id=1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3
 
 ## Requierements
 * Python 2.7
 * Pytorch 1.0.0
+* Numpy 1.13.0
 
 
 ## How to run
