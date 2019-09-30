@@ -16,10 +16,10 @@ patience = 5
 ##############################
 algo_name = ift_ilsvrc_s10_1k
 normalization_dataset_name = ilsvrc
-datasets_mean_std_file_path = images_list_files/datasets_mean_std.txt
+datasets_mean_std_file_path = data/datasets_mean_std.txt
 K = 1000
-train_files_dir = images_list_files/ilsvrc/S~10/unbalanced/train/
-dataset_files_dir = images_list_files/ilsvrc/S~10
+train_files_dir = data/images_list_files/ilsvrc/S~10/unbalanced/train/
+dataset_files_dir = data/images_list_files/ilsvrc/S~10
 first_model_load_path =  /scratch_global/eden/models/basic/ilsvrc/ilsvrc_s10_batch1.pt
 ############################## DO NOT CHANGE
 saving_intermediate_models = False
