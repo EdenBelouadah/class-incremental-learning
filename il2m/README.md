@@ -49,6 +49,8 @@ python codes/ft.py configs/ft.cf
 ```
 python codes/features_extraction_b1.py configs/features_extraction_b1_train.cf
 python codes/features_extraction_b1.py configs/features_extraction_b1_val.cf
+python codes/features_extraction_ft.py configs/features_extraction_ft.cf
+
 
 
 ```
