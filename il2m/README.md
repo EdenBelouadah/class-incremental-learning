@@ -1,24 +1,37 @@
 # IL2M-Class-Incremental-Learning-with-Dual-Memory
 ## Abstract
 This paper presents a class incremental learning (IL) method which exploits fine tuning and a dual memory to reduce the negative effect of catastrophic forgetting in image recognition. 
-First, we simplify the current fine tuning based approaches which use a combination of classification and distillation losses to compensate for the limited availability of past data. 
-We find that the distillation term actually hurts performance when a memory is allowed. 
-Then, we modify the usual class IL memory component. 
+
+First, we simplify the current fine tuning based approaches which use a combination of classification and distillation losses to compensate for the limited availability of past data. We find that the distillation term actually hurts performance when a memory is allowed. Then, we modify the usual class IL memory component. 
+
 Similar to existing works, a first memory stores exemplar images of past classes.
 A second memory is introduced here to store past class statistics obtained when they were initially learned. 
 The intuition here is that classes are best modeled when all their data are available and that their initial statistics are useful across different incremental states. 
+
 A prediction bias towards newly learned classes appears during inference because the dataset is imbalanced in their favor.
 The challenge is to make predictions of new and past classes more comparable. To do this, scores of past classes are rectified by leveraging contents from both memories.
+
 The method has negligible added cost, both in terms of memory and of inference complexity.
 Experiments with three large public datasets show that the proposed approach is more effective than a range of competitive state-of-the-art methods. 
 ## Paper
 Link to the related paper:
+
 (todo)
+
 To cite this work:
+
 (todo)
+
+## Data
+Data used in the experiments is available here : https://drive.google.com/drive/folders/1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3?usp=sharing
+
 ## Configuration files
 
 This is the explanation of the different parameters:
+
+0. #### scratch.py
+   * old_train_file_path: path to file containing old train image paths.
+   * new_tr
 
 1. #### ft.py
    * number: batch number [2 - 10]. Useful to update the learning rate.
