@@ -1,5 +1,4 @@
 [scratch.py]
-used_model = resnet18
 normalization_dataset_name = ilsvrc
 datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
 algo_name = ilsvrc_s20_batch1
@@ -10,7 +9,6 @@ old_batch_size= 256
 new_batch_size= 32
 val_batch_size= 2
 #######
-starting_epoch=0
 num_epochs=100
 #######
 lr_decay=0.1
@@ -22,9 +20,7 @@ patience=10
 train_file_path= data/images_list_files/ilsvrc/S~5/batch1/train.lst
 val_file_path= data/eden/images_list_files/ilsvrc/S~5/batch1/val.lst
 #######
-using_old_model = False
 model_load_path = None
-saving_new_model = True
 models_save_dir = /scratch_global/eden/basic_models/ilsvrc
 saving_intermediate_models = False
 intermediate_models_save_dir = None
