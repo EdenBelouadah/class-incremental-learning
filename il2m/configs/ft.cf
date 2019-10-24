@@ -1,11 +1,9 @@
 [ft.py]
-used_model = resnet18
 num_workers = 12
 gpu = 5
 old_batch_size=256 #train batch size
 new_batch_size=32 #useful if the gpu memory is insufficient to load 256 images, here we load the batch 32 by 32 images
 val_batch_size=2 #validation batch size
-starting_epoch=0
 num_epochs = 35
 lr_decay=0.1
 lr=0.1
