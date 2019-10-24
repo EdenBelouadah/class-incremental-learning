@@ -14,10 +14,12 @@ The challenge is to make predictions of new and past classes more comparable. To
 The method has negligible added cost, both in terms of memory and of inference complexity.
 Experiments with three large public datasets show that the proposed approach is more effective than a range of competitive state-of-the-art methods. 
 ## Paper
-Link to the related paper: [Here] (http://openaccess.thecvf.com/content_ICCV_2019/papers/Belouadah_IL2M_Class_Incremental_Learning_With_Dual_Memory_ICCV_2019_paper.pdf)
+[pdf](http://openaccess.thecvf.com/content_ICCV_2019/papers/Belouadah_IL2M_Class_Incremental_Learning_With_Dual_Memory_ICCV_2019_paper.pdf/)
+[supp](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Belouadah_IL2M_Class_Incremental_ICCV_2019_supplemental.pdf)
 
 To cite this work:
 
+```
 @InProceedings{Belouadah_2019_ICCV,
 author = {Belouadah, Eden and Popescu, Adrian},
 title = {IL2M: Class Incremental Learning With Dual Memory},
@@ -25,6 +27,7 @@ booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
 month = {October},
 year = {2019}
 } 
+```
 
 ## Data
 Data used in the experiments is available here : https://drive.google.com/open?id=1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3
