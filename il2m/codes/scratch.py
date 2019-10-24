@@ -47,7 +47,6 @@ old_batch_size = int(cp['old_batch_size'])
 new_batch_size = int(cp['new_batch_size'])
 val_batch_size = int(cp['val_batch_size'])
 iter_size = int(old_batch_size / new_batch_size)
-starting_epoch = int(cp['starting_epoch'])
 algo_name = cp['algo_name']
 intermediate_models_save_dir = os.path.join(cp['intermediate_models_save_dir'], algo_name)
 saving_intermediate_models = cp['saving_intermediate_models']  == 'True'
@@ -100,7 +99,6 @@ with warnings.catch_warnings(record=True) as warn_list:
     print("New Batch size = " + str(new_batch_size))
     print("Val Batch size = " + str(val_batch_size))
     print("Iter size = " + str(iter_size))
-    print("Starting epoch = " + str(starting_epoch))
     print("Number of epochs = " + str(num_epochs))
     print("lr = " + str(lr))
     print("momentum = " + str(momentum))
@@ -151,7 +149,7 @@ with warnings.catch_warnings(record=True) as warn_list:
 
 
     try:
-        for epoch in range(starting_epoch, starting_epoch + num_epochs):
+        for epoch in range(num_epochs):
             top1 = AverageMeter.AverageMeter()
             top5 = AverageMeter.AverageMeter()
             # scheduler.step()
@@ -197,7 +195,7 @@ with warnings.catch_warnings(record=True) as warn_list:
 
             current_elapsed_time = time.time() - starting_time
             print('{:03}/{:03} | {} | Train : loss = {:.4f} | Val : acc@1 = {}% ; acc@5 = {}%'.
-                  format(epoch + 1, starting_epoch + num_epochs, timedelta(seconds=round(current_elapsed_time)), running_loss / nb_batches, top1.avg , top5.avg))
+                  format(epoch + 1, num_epochs, timedelta(seconds=round(current_elapsed_time)), running_loss / nb_batches, top1.avg , top5.avg))
 
             # Saving model
             if saving_intermediate_models:
@@ -213,17 +211,16 @@ with warnings.catch_warnings(record=True) as warn_list:
 
     finally:
         print('Finished Training, elapsed training time : {}'.format(timedelta(seconds=round(time.time() - starting_time))))
-        if saving_new_model :
-            models_save_dir = os.path.join(cp['models_save_dir'], algo_name)
-            if not os.path.exists(models_save_dir):
-                os.makedirs(models_save_dir)
+        models_save_dir = os.path.join(cp['models_save_dir'], algo_name)
+        if not os.path.exists(models_save_dir):
+            os.makedirs(models_save_dir)
 
-            print('Saving model in '+models_save_dir+'.pt'+'...')
-            state ={
-                'state_dict' : model.state_dict(),
-                'optimizer'  : optimizer.state_dict(),
-            }
-            torch.save(state,models_save_dir+'.pt')
+        print('Saving model in '+models_save_dir+'.pt'+'...')
+        state ={
+            'state_dict' : model.state_dict(),
+            'optimizer'  : optimizer.state_dict(),
+        }
+        torch.save(state,models_save_dir+'.pt')
 
 
         #Print warnings
