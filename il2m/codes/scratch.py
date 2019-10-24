@@ -36,7 +36,6 @@ num_epochs = int(cp['num_epochs'])
 gpu = int(cp['gpu'])
 train_file_path = cp['train_file_path']
 val_file_path = cp['val_file_path']
-saving_new_model = cp['saving_new_model'] == 'True'
 lr_decay = float(cp['lr_decay'])
 lr = float(cp['lr'])
 momentum = float(cp['momentum'])
