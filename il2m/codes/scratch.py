@@ -50,7 +50,6 @@ val_batch_size = int(cp['val_batch_size'])
 iter_size = int(old_batch_size / new_batch_size)
 starting_epoch = int(cp['starting_epoch'])
 algo_name = cp['algo_name']
-used_model = cp['used_model']
 intermediate_models_save_dir = os.path.join(cp['intermediate_models_save_dir'], algo_name)
 saving_intermediate_models = cp['saving_intermediate_models']  == 'True'
 datasets_mean_std_file_path = cp['datasets_mean_std_file_path']
@@ -128,43 +127,12 @@ with warnings.catch_warnings(record=True) as warn_list:
 
 
     #Creating model
-    if used_model == 'resnet18':
-        print('Creating ResNet-18 model...')
-        model = models.resnet18(pretrained=False, num_classes=num_classes)
-
-    elif used_model == 'resnet50':
-        print('Creating ResNet-50 model...')
-        model = models.resnet50(pretrained=False, num_classes=num_classes)
-    else: #default model
-        print('Creating ResNet-50 model...')
-        model = models.resnet50(pretrained=False, num_classes=num_classes)
+    print('Creating ResNet-18 model...')
+    model = models.resnet18(pretrained=False, num_classes=num_classes)
 
     # Define Loss and Optimizer
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=weight_decay)
-
-    best_v_acc = -1
-    best_epoch = 0
-    best_model = model
-
-    if using_old_model:
-        model_load_path = cp['model_load_path']
-        if os.path.exists(model_load_path):
-            print('Loading saved model from '+model_load_path)
-            state = torch.load(model_load_path, map_location=lambda storage, loc: storage)
-            model.load_state_dict(state['state_dict'])
-            optimizer.load_state_dict(state['optimizer'])
-            lr = optimizer.param_groups[0]['lr']
-            print('current lr = ' + str(lr))
-            optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=weight_decay)
-            best_v_acc = state['best_v_acc']
-            best_epoch = state['epoch']
-        else:
-            print('No Model found in the specified path!')
-            sys.exit(-1)
-
-    best_optimizer = optimizer
-
     scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, patience=patience, factor=lr_decay)
 
 
@@ -227,14 +195,7 @@ with warnings.catch_warnings(record=True) as warn_list:
                 prec1, prec5 = utils.accuracy(outputs.data, labels, topk=(1, 5))
                 top1.update(prec1.item(), inputs.size(0))
                 top5.update(prec5.item(), inputs.size(0))
-                _, predicted = torch.max(outputs, 1)
 
-            v_acc = float(top1.avg)
-            if v_acc > best_v_acc:
-                best_v_acc = v_acc
-                best_model = model
-                best_optimizer = optimizer
-                best_epoch = epoch
             current_elapsed_time = time.time() - starting_time
             print('{:03}/{:03} | {} | Train : loss = {:.4f} | Val : acc@1 = {}% ; acc@5 = {}%'.
                   format(epoch + 1, starting_epoch + num_epochs, timedelta(seconds=round(current_elapsed_time)), running_loss / nb_batches, top1.avg , top5.avg))
@@ -242,11 +203,8 @@ with warnings.catch_warnings(record=True) as warn_list:
             # Saving model
             if saving_intermediate_models:
                 state = {
-                    'epoch': epoch,
                     'state_dict': model.state_dict(),
                     'optimizer': optimizer.state_dict(),
-                    'v_acc': v_acc,
-                    'best_v_acc': best_v_acc
                 }
                 torch.save(state, intermediate_models_save_dir + '/' + str(epoch) +'.pt')
 
@@ -256,24 +214,20 @@ with warnings.catch_warnings(record=True) as warn_list:
 
     finally:
         print('Finished Training, elapsed training time : {}'.format(timedelta(seconds=round(time.time() - starting_time))))
-        if saving_new_model and best_model is not None:
+        if saving_new_model :
             models_save_dir = os.path.join(cp['models_save_dir'], algo_name)
             if not os.path.exists(models_save_dir):
                 os.makedirs(models_save_dir)
 
-            print('Saving best model in '+models_save_dir+'.pt'+'...')
+            print('Saving model in '+models_save_dir+'.pt'+'...')
             state ={
-                'epoch'      : best_epoch,
-                'state_dict' : best_model.state_dict(),
-                'optimizer'  : best_optimizer.state_dict(),
-                'best_v_acc' : best_v_acc
+                'state_dict' : model.state_dict(),
+                'optimizer'  : optimizer.state_dict(),
             }
-            # torch.save(state,models_save_dir+'_['+str(best_v_acc)+'].pt')
-            print('best acc = '+str(best_v_acc))
             torch.save(state,models_save_dir+'.pt')
 
 
-        #Print warnings (Possibly corrupt EXIF files):
+        #Print warnings
         if len(warn_list) > 0:
             print("\n"+str(len(warn_list))+" Warnings\n")
             # for i in range(len(warn_list)):
