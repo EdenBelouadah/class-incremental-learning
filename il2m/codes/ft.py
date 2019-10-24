@@ -83,10 +83,8 @@ old_batch_size = int(cp['old_batch_size'])
 new_batch_size = int(cp['new_batch_size'])
 val_batch_size = int(cp['val_batch_size'])
 iter_size = int(old_batch_size / new_batch_size)
-starting_epoch = int(cp['starting_epoch'])
 num_epochs = int(cp['num_epochs'])
 normalization_dataset_name = cp['normalization_dataset_name']
-used_model = cp['used_model']
 first_batch_number = int(cp['first_batch_number'])
 last_batch_number = int(cp['last_batch_number'])
 models_save_dir = cp['models_save_dir']
@@ -118,7 +116,6 @@ with warnings.catch_warnings(record=True) as warn_list:
     print("New Batch size = " + str(new_batch_size))
     print("Val Batch size = " + str(val_batch_size))
     print("Iter size = " + str(iter_size))
-    print("Starting epoch = " + str(starting_epoch))
     print("Number of epochs = " + str(num_epochs))
     print("momentum = " + str(momentum))
     print("weight_decay = " + str(weight_decay))
@@ -228,12 +225,7 @@ with warnings.catch_warnings(record=True) as warn_list:
         print("Number of batches in Training-set = " + str(len(train_loader)))
         print("Number of batches in Validation-set = " + str(len(val_loader)))
 
-        if used_model == 'resnet18':
-            model_ft = models.resnet18(pretrained=False, num_classes=old_classes_number)
-        elif used_model == 'resnet50':
-            model_ft = models.resnet50(pretrained=False, num_classes=old_classes_number)
-        else: #default model
-            model_ft = models.resnet50(pretrained=False, num_classes=old_classes_number)
+        model_ft = models.resnet18(pretrained=False, num_classes=old_classes_number)
 
         print('Loading saved model from ' + model_load_path)
         state = torch.load(model_load_path, map_location=lambda storage, loc: storage)
@@ -259,12 +251,9 @@ with warnings.catch_warnings(record=True) as warn_list:
         print("-" * 20)
         print("Training...")
         starting_time = time.time()
-        best_top1_v_acc = -1
-        best_top5_v_acc = -1
-        best_epoch = 0
-        best_model = None
-        best_optimizer_ft = None
         epoch = 0
+        top1_v_acc = 0
+        top5_v_acc = 0
         for epoch in range(num_epochs):
             top1 = AverageMeter.AverageMeter()
             top5 = AverageMeter.AverageMeter()
@@ -289,9 +278,6 @@ with warnings.catch_warnings(record=True) as warn_list:
                 outputs = model_ft(inputs)
                 loss = criterion(outputs, labels)
 
-                # loss.data[0] /= iter_size
-                # loss.backward()
-                # running_loss += loss.data.cpu().numpy()[0]
                 loss.data /= iter_size
                 loss.backward()
                 running_loss += loss.data.item()
@@ -313,13 +299,6 @@ with warnings.catch_warnings(record=True) as warn_list:
                 prec1, prec5 = accuracy(outputs.data, labels, topk=(1, top))
                 top1.update(prec1.item(), inputs.size(0))
                 top5.update(prec5.item(), inputs.size(0))
-            # -------------------------------------------
-            if top1.avg > best_top1_v_acc:
-                best_top1_v_acc = top1.avg
-                best_top5_v_acc = top5.avg
-                best_model = copy.deepcopy(model_ft)
-                best_optimizer_ft = copy.deepcopy(optimizer_ft)
-                best_epoch = epoch
 
 
             current_elapsed_time = time.time() - starting_time
@@ -327,15 +306,14 @@ with warnings.catch_warnings(record=True) as warn_list:
                   format(epoch + 1, num_epochs, timedelta(seconds=round(current_elapsed_time)),
                          running_loss / nb_batches, top1.avg ,top, top5.avg))
 
-
-
+            top1_v_acc = top1.avg
+            top5_v_acc = top5.avg
+            
             if saving_intermediate_models == True :
                 # Saving model
                 state = {
-                    'epoch': best_epoch,
                     'state_dict': model_ft.state_dict(),
                     'optimizer': optimizer_ft.state_dict(),
-                    'best_top1_v_acc': best_top1_v_acc
                 }
 
                 torch.save(state, batch_models_save_dir +'/'+ str(epoch) + '.pt')
@@ -343,18 +321,15 @@ with warnings.catch_warnings(record=True) as warn_list:
 
 
         #training finished
-        if best_model is not None:
-            print('Saving best model in ' + batch_models_save_dir + '.pt' + '...')
-            state = {
-                'epoch': epoch,
-                'state_dict': best_model.state_dict(),
-                'optimizer': best_optimizer_ft.state_dict()
-            }
-            print('best acc = ' + str(best_top1_v_acc))
-            torch.save(state, batch_models_save_dir + '.pt')
+        print('Saving model in ' + batch_models_save_dir + '.pt' + '...')
+        state = {
+            'state_dict': model.state_dict(),
+            'optimizer': optimizer_ft.state_dict()
+        }
+        torch.save(state, batch_models_save_dir + '.pt')
 
-        top_1_val_accuracies.append(best_top1_v_acc)
-        top_5_val_accuracies.append(best_top5_v_acc)
+        top_1_val_accuracies.append(top1_v_acc)
+        top_5_val_accuracies.append(top5_v_acc)
         print('top1 accuracies so far : ' + str(top_1_val_accuracies))
         print('top5 accuracies so far : ' + str(top_5_val_accuracies))
 
