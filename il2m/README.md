@@ -14,8 +14,7 @@ The challenge is to make predictions of new and past classes more comparable. To
 The method has negligible added cost, both in terms of memory and of inference complexity.
 Experiments with three large public datasets show that the proposed approach is more effective than a range of competitive state-of-the-art methods. 
 ## Paper
-[pdf](http://openaccess.thecvf.com/content_ICCV_2019/papers/Belouadah_IL2M_Class_Incremental_Learning_With_Dual_Memory_ICCV_2019_paper.pdf/)
-[supp](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Belouadah_IL2M_Class_Incremental_ICCV_2019_supplemental.pdf)
+[[pdf]](http://openaccess.thecvf.com/content_ICCV_2019/papers/Belouadah_IL2M_Class_Incremental_Learning_With_Dual_Memory_ICCV_2019_paper.pdf)-[[supp]](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Belouadah_IL2M_Class_Incremental_ICCV_2019_supplemental.pdf)
 
 To cite this work:
 
