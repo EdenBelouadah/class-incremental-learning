@@ -1,7 +1,7 @@
 [scratch.py]
 normalization_dataset_name = ilsvrc
 datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
-algo_name = ilsvrc_s20_batch1
+algo_name = ilsvrc_s10_batch1
 num_workers = 2
 gpu = 3 #the number of the gpu used, set to 0 if you only have one gpu
 #######
@@ -17,8 +17,8 @@ momentum=0.9
 weight_decay=0.0001
 patience=10
 #######
-train_file_path= data/images_list_files/ilsvrc/S~5/batch1/train.lst
-val_file_path= data/images_list_files/ilsvrc/S~5/batch1/val.lst
+train_file_path= data/images_list_files/ilsvrc/S~10/batch1/train.lst
+val_file_path= data/images_list_files/ilsvrc/S~10/batch1/val.lst
 #######
 model_load_path = None
 models_save_dir = /set/here/your/path/ilsvrc
