@@ -8,6 +8,6 @@ normalization_dataset_name = ilsvrc
 datasets_mean_std_file_path = data/datasets_mean_std.txt
 
 used_model_num_classes = 200
-model_load_path = /scratch_global/eden/models/basic/ilsvrc/ilsvrc_s5_batch1.pt
+model_load_path = /set/here/your/path/ilsvrc/ilsvrc_s5_batch1.pt
 images_list = data/images_list_files/ilsvrc/S~5/batch1/train.lst
-destination_dir = /scratch/eden/feat_scores_extract_for_first_batch/ilsvrc/S~5/train
+destination_dir = /set/here/your/path/feat_scores_extract_for_first_batch/ilsvrc/S~5/train
