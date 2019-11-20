@@ -63,7 +63,7 @@ You should provide the following parameters to the program: images_list_files_pa
 
 For example, for IL2M on ILSVRC1000 with 9 incremental states (10 states in total, each one having a number of classes = 100), with memory size 20000:
 ```
-python codes/il2m.py  data/images_list_files/ /scratch/eden/feat_scores_extract_for_ft/ /scratch/eden/feat_scores_extract_for_first_batch/ ilsvrc 10 100 20000 2>&1 | tee /home/eden/logs/il2m/ilsvrc/S~10/il2m_ilsvrc_s10_20k.log
+python codes/il2m.py  data/images_list_files/ /set/here/your/path/feat_scores_extract_for_ft/ /set/here/your/path/feat_scores_extract_for_first_batch/ ilsvrc 10 100 20000 2>&1 | tee /set/here/your/path/logs/il2m/ilsvrc/S~10/il2m_ilsvrc_s10_20k.log
 ```
 
 
