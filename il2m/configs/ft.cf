@@ -17,10 +17,10 @@ datasets_mean_std_file_path = data/datasets_mean_std.txt
 K = 1000 #memory size
 train_files_dir = data/images_list_files/ilsvrc/S~10/unbalanced/train/
 dataset_files_dir = data/images_list_files/ilsvrc/S~10
-first_model_load_path =  /scratch_global/eden/models/basic/ilsvrc/ilsvrc_s10_batch1.pt
+first_model_load_path =  /set/here/your/path/ilsvrc/ilsvrc_s10_batch1.pt
 ############################## DO NOT CHANGE
 saving_intermediate_models = False
-models_save_dir = /scratch_global/eden/models/ift/ilsvrc/S~10/K~1000/
+models_save_dir = /set/here/your/path/ilsvrc/S~10/K~1000/
 #########################
 first_batch_number = 2
 last_batch_number = 10
