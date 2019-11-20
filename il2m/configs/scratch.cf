@@ -18,9 +18,9 @@ weight_decay=0.0001
 patience=10
 #######
 train_file_path= data/images_list_files/ilsvrc/S~5/batch1/train.lst
-val_file_path= data/eden/images_list_files/ilsvrc/S~5/batch1/val.lst
+val_file_path= data/images_list_files/ilsvrc/S~5/batch1/val.lst
 #######
 model_load_path = None
-models_save_dir = /scratch_global/eden/basic_models/ilsvrc
+models_save_dir = /set/here/your/path/ilsvrc
 saving_intermediate_models = False
 intermediate_models_save_dir = None
