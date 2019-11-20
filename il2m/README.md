@@ -29,7 +29,7 @@ year = {2019}
 ```
 
 ## Data
-Data used in the experiments is available [here](https://drive.google.com/open?id=1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3)
+Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/open?id=1kgoB0Oxb9Wv2wSWFT5Yf7IoKXR3gAL_3)
 
 ## Requierements
 * Python 2.7
@@ -68,7 +68,7 @@ python codes/il2m.py  data/images_list_files/ /scratch/eden/feat_scores_extract_
 
 
 ### Remarks. 
-1. You need to compute the images mean/std used for normalization of your dataset using the traing images of the first batch of classes (if different from ILSVRC, VGG-Face2 and Google Landmarks) and add it to the file 'data/datasets_mean_std.txt'.
+1. If your dataset is different from ILSVRC, VGG-Face2 and Google Landmarks, you need to compute the images mean/std used for normalization of your dataset using the traing images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
 2. Please delete all the comments from the configuration files, to avoid compilation errors. 
 3. Feel free to send an email to eden.belouadah@cea.fr if there is any issue with the code.
 
