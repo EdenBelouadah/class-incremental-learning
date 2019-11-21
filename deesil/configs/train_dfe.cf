@@ -1,0 +1,26 @@
+[train_dfe.py]
+normalization_dataset_name = ilsvrc_batch1
+datasets_mean_std_file_path = data/datasets_mean_std.txt
+algo_name = min_work_deesil
+num_workers = 2
+gpu = 3
+#######
+old_batch_size= 256
+new_batch_size= 32
+val_batch_size= 2
+#######
+num_epochs=100
+#######
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0001
+patience=10
+#######
+train_file_path=./data/train.lst
+val_file_path=./data/val.lst
+#######
+model_load_path = None
+models_save_dir = /set/your/path/here/output
+saving_intermediate_models = False
+intermediate_models_save_dir = None

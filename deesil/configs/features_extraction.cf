@@ -1,0 +1,11 @@
+[features_extraction.py]
+num_workers = 6
+batch_size = 128
+model_load_path = ./output/min_work_deesil.pt
+gpu = 1
+normalization_dataset_name = ilsvrc_batch1
+datasets_mean_std_file_path = data/datasets_mean_std.txt
+features_size = 512
+used_model_num_classes = 5
+images_lists_folder = ./data/list_val
+destination_dir = ./output/features_val
