@@ -1,13 +1,10 @@
 from __future__ import division
-
-import copy
 import os
 import socket
 import sys
 import time
 import warnings
 from datetime import timedelta
-
 import numpy as np
 import torch.cuda as tc
 import torch.nn as nn
@@ -20,39 +17,10 @@ from torch.autograd import Variable
 from torch.optim import lr_scheduler
 from torchvision import models
 from MyImageFolder import ImagesListFileFolder
+from Utils import DataUtils
 
 
-def accuracy(output, target, topk=(1,)):
-    """Computes the precision@k for the specified values of k"""
-    maxk = max(topk)
-    batch_size = target.size(0)
-
-    _, pred = output.topk(maxk, 1, True, True)
-    pred = pred.t()
-    correct = pred.eq(target.view(1, -1).expand_as(pred))
-
-    res = []
-    for k in topk:
-        correct_k = correct[:k].view(-1).float().sum(0)
-        res.append(correct_k.mul_(100.0 / batch_size))
-    return res
-
-
-def get_dataset_mean_std(normalization_dataset_name, datasets_mean_std_file_path):
-    import re
-    datasets_mean_std_file = open(datasets_mean_std_file_path, 'r').readlines()
-    for line in datasets_mean_std_file:
-        line = line.strip().split(':')
-        dataset_name = line[0]
-        dataset_stat = line[1]
-        if dataset_name == normalization_dataset_name:
-            dataset_stat = dataset_stat.split(';')
-            dataset_mean = [float (e) for e in re.findall(r'\d+\.\d+',dataset_stat[0])]
-            dataset_std =  [float (e) for e in re.findall(r'\d+\.\d+',dataset_stat[1])]
-            return dataset_mean, dataset_std
-    print('Invalid normalization dataset name')
-    sys.exit(-1)
-
+utils = DataUtils()
 
 if len(sys.argv) != 2:  # We have to give 1 arg
     print('Arguments: general_config')
@@ -99,7 +67,7 @@ if not os.path.exists(models_save_dir):
 # catching warnings
 with warnings.catch_warnings(record=True) as warn_list:
     # Data loading code
-    dataset_mean, dataset_std = get_dataset_mean_std(normalization_dataset_name, datasets_mean_std_file_path)
+    dataset_mean, dataset_std = utils.get_dataset_mean_std(normalization_dataset_name, datasets_mean_std_file_path)
 
     print('normalization dataset name = ' + str(normalization_dataset_name))
     print('dataset mean = ' + str(dataset_mean))
@@ -296,7 +264,7 @@ with warnings.catch_warnings(record=True) as warn_list:
                 if tc.is_available():
                     inputs, labels = inputs.cuda(gpu), labels.cuda(gpu)
                 outputs = model_ft(Variable(inputs))
-                prec1, prec5 = accuracy(outputs.data, labels, topk=(1, top))
+                prec1, prec5 = utils.accuracy(outputs.data, labels, topk=(1, top))
                 top1.update(prec1.item(), inputs.size(0))
                 top5.update(prec5.item(), inputs.size(0))
 
@@ -323,7 +291,7 @@ with warnings.catch_warnings(record=True) as warn_list:
         #training finished
         print('Saving model in ' + batch_models_save_dir + '.pt' + '...')
         state = {
-            'state_dict': model.state_dict(),
+            'state_dict': model_ft.state_dict(),
             'optimizer': optimizer_ft.state_dict()
         }
         torch.save(state, batch_models_save_dir + '.pt')
