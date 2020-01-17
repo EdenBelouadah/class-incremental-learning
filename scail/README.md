@@ -49,7 +49,6 @@ python codes/features_extraction.py configs/features_extraction.cf
 
 ```
 python codes/extract_last_layer_weights_for_first_batch.py path/to/first/batch/model.pt model_num_classes 1 path/to/destination/dir
-
 python codes/extract_last_layer_weights_for_ft.py path/to/ft/models_prefix number_of_states number_of_classes_per_state path/to/destination/dir
 ```
 
