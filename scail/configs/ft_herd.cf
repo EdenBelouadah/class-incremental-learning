@@ -1,0 +1,35 @@
+[ft_herd.py]
+used_model = resnet18
+datasets_mean_std_file_path = ./data/datasets_mean_std.txt
+num_workers = 8
+gpu = 6
+##############################
+old_batch_size= 256
+new_batch_size= 32
+val_batch_size= 2
+exemplars_batch_size = 128
+#######
+starting_epoch=0
+num_epochs=35
+#######
+step_size=10
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0001
+patience=5
+normalization_dataset_name = ilsvrc
+############
+first_batch_number = 1
+last_batch_number = 10
+K = 20000
+##############################
+algo_name = ift_herd_ilsvrc_s10_5k #output name for the models
+file_names_suffix =
+exemplars_dir = /path/to/your/herding/output/dir/ilsvrc/S~10/K~20000
+features_destination_dir = /path/to/output/dir/ilsvrc/S~10/K~20000/
+dataset_files_path = ./data/images_list_files/ilsvrc/S~10
+first_model_load_path =  /set/here/your/path/ilsvrc/ilsvrc_s10_batch1.pt
+############################## DO NOT CHANGE
+saving_intermediate_models = False
+models_save_dir = /set/here/your/path/ilsvrc/S~10/K~5000/

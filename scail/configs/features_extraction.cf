@@ -1,0 +1,15 @@
+[features_extraction.py]
+num_workers = 12
+batch_size = 128
+gpu = 6
+normalization_dataset_name = vgg_faces
+first_batch_number = 1
+last_batch_number = 10
+P = 100
+S = 10
+datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
+
+first_model_load_path = /set/here/your/path/vgg_faces/vgg_faces_s10_batch1.pt
+models_load_path_prefix = /set/here/your/path/vgg_faces/S~10/K~10000/ift_vgg_faces_s10_k10000_b
+val_images_list_dir = /data/images_list_files/vgg_faces/S~10/accumulated/val
+destination_dir = /set/here/your/path/vgg_faces/S~10/K~10000/validation_features

@@ -1,0 +1,17 @@
+[features_extraction_herd.py]
+num_workers = 6
+batch_size = 128
+gpu = 3
+features_size = 512
+normalization_dataset_name = vgg_faces
+first_batch_number = 2
+last_batch_number = 10
+P = 100
+S = 10
+datasets_mean_std_file_path = ./data/images_list_files/datasets_mean_std.txt
+
+models_load_path_prefix = /set/here/your/path/vgg_faces/S~10/K~10000/ift_herd_vgg_faces_s10_k10000_b
+old_train_images_list_dir = /set/here/your/path/herding_files/vgg_faces/S~10/K~10000
+new_train_images_list_dir = ./data/images_list_file/vgg_faces/S~10/separated/train/
+val_images_list_dir = ./data/images_list_files/vgg_faces/S~10/accumulated/val
+destination_dir = /set/here/your/path/vgg_faces/vgg_faces/S~10/K~10000
