@@ -67,7 +67,7 @@ You should provide the following parameters:
 
 For example, for $$inFT_{siw}^{mc}$$ on CIFAR100 with 20 states, each one containing 5 classes:
 ```
-python ./codes/inFT_siw_mc.py ilsvrc ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
+python ./codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
 
 for the other post processing methods (todo), just change the path to the code file, the parameters are the same. 
