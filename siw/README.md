@@ -15,8 +15,64 @@ We conduct a thorough evaluation with four public datasets in a memoryless incre
 
 Results show that our method outperforms existing techniques by a large margin for large-scale datasets. 
 
-## Code
-The code will be available soon. 
+## Paper
+The paper is accepted in BMVC2020. The link will be soon available.
 
-The paper is accepted in BMVC2020
+## Data
+Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/drive/folders/1lSxH3BRnuDjQBYG46wcw6HptUrkSfhS9?usp=sharing)
 
+## Requierements
+* Python 2.7 or python 3
+* Pytorch 1.0.0
+* Numpy 1.13.0
+* SkLearn 0.19.1
+
+
+## How to run
+
+1. ### Training the first batch of classes from scratch
+
+```
+python codes/scratch.py configs/scratch.cf
+```
+
+2. ### Fine tuning without memory
+
+```
+python codes/no_mem_ft.py configs/no_mem_ft.cf
+```
+3. ### Features extraction
+
+```
+python codes/features_extraction.py configs/features_extraction.cf
+```
+
+4. ### Last layer parameters extraction (weight and bias)
+
+```
+python codes/extract_last_layer_weights_for_first_batch.py path/to/first/batch/model.pt model_num_classes 1 path/to/destination/dir
+python codes/extract_last_layer_weights_for_ft.py path/to/ft/models_prefix number_of_states number_of_classes_per_state path/to/destination/dir
+```
+
+
+5. ### Standardization of Initial Weights (SIW)
+You should provide the following parameters:
+* images_list_files_path : folder containing data lists files, in this case ./data/images_list_files
+* ft_feat_scores_path : folder containing test features extracted after training fine tuning
+* ft_weights_dir : folder containing classification layer parameters
+* K : memory size, always equal to 0.
+* P : number of classes per incremental state
+* S : total number of states
+* dataset : name of the dataset - ilsvrc, vgg_faces, google_landmarks or cifar100
+
+For example, for $inFT_{siw}^{mc}$ on ILSVRC with 9 incremental states (10 states in total, each one containing 100 classes), with memory size 20000:
+```
+python ./codes/inFT_siw_mc.py ilsvrc ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 100 10 ilsvrc
+```
+
+for the other post processing methods (todo), just change the path to the code file, the parameters are the same. 
+
+### Remarks. 
+1. If your dataset is different from ILSVRC, VGG-Face2, Google Landmarks and CIFAR-100, you need to compute the images mean/std used for normalization of your dataset using the training images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
+2. Please delete all the comments from the configuration files, to avoid compilation errors. 
+3. Feel free to send an email to eden.belouadah@cea.fr if there is any issue with the code.
