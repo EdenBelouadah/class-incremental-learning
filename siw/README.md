@@ -19,7 +19,7 @@ Results show that our method outperforms existing techniques by a large margin f
 The paper is accepted in BMVC2020. The link will be soon available.
 
 ## Data
-Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/drive/folders/1lSxH3BRnuDjQBYG46wcw6HptUrkSfhS9?usp=sharing)
+Data needed to reproduce the experiments from the paper will be soon available
 
 ## Requierements
 * Python 2.7 or python 3
@@ -65,9 +65,9 @@ You should provide the following parameters:
 * S : total number of states
 * dataset : name of the dataset - ilsvrc, vgg_faces, google_landmarks or cifar100
 
-For example, for $inFT_{siw}^{mc}$ on ILSVRC with 9 incremental states (10 states in total, each one containing 100 classes), with memory size 20000:
+For example, for $$inFT_{siw}^{mc}$$ on CIFAR100 with 20 states, each one containing 5 classes:
 ```
-python ./codes/inFT_siw_mc.py ilsvrc ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 100 10 ilsvrc
+python ./codes/inFT_siw_mc.py ilsvrc ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
 
 for the other post processing methods (todo), just change the path to the code file, the parameters are the same. 

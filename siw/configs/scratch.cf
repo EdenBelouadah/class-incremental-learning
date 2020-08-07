@@ -1,0 +1,27 @@
+[scratch.py]
+normalization_dataset_name = cifar100
+datasets_mean_std_file_path = data/datasets_mean_std.txt
+algo_name = cifar100_s10_batch1
+num_workers = 2
+gpu = 3 #the number of the gpu used, set to 0 if you only have one gpu
+#######
+old_batch_size= 128
+new_batch_size= 32
+val_batch_size= 128
+#######
+starting_epoch=0
+num_epochs=300
+#######
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0005
+patience=60
+#######
+train_file_path= data/images_list_files/cifar100/s10/batch1/train.lst
+val_file_path= data/images_list_files/cifar100/s10/batch1/val.lst
+#######
+model_load_path = None
+models_save_dir = /set/here/your/path/cifar100
+saving_intermediate_models = False
+intermediate_models_save_dir = None

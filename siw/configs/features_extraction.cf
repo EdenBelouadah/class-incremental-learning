@@ -1,0 +1,16 @@
+[features_extraction.py]
+num_workers = 12
+batch_size = 128
+gpu = 7
+normalization_dataset_name = cifar100
+P = 10
+S = 10
+datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
+
+first_batch_model_load_path = /set/here/your/path/cifar100/cifar100_s10_batch1.pt
+inc_models_load_path_prefix =  /set/here/your/path/cifar100/s10/no_mem_ft_cifar100_s10_b
+images_list_dir = data/images_list_files/cifar100/s10/
+destination_dir = data/feat_scores_extract_for_no_mem_ft/cifar100/s10/k0
+fc_params_destination_path = data/weights_bias_for_no_mem_ft/cifar100/s10/k0/
+
+

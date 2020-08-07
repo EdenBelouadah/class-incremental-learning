@@ -1,0 +1,28 @@
+[no_mem_ft.py]
+datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
+num_workers = 4
+gpu = 0
+##############################
+old_batch_size=128
+new_batch_size=32
+test_batch_size=128
+exemplars_batch_size = 128
+starting_epoch=0
+num_epochs = 70
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0005
+patience = 15
+normalization_dataset_name = cifar100
+############
+first_batch_number = 2
+last_batch_number = 10
+P = 10
+##############################
+algo_name = no_mem_ft_cifar100_s10_k0
+dataset_files_dir = data/images_list_files/cifar100/s10
+first_model_load_path =  /set/here/your/path/cifar100/cifar100_s10_batch1.pt
+############################## DO NOT CHANGE
+saving_intermediate_models = False
+models_save_dir = /set/here/your/path/cifar100/s10/k0/
