@@ -53,7 +53,7 @@ python codes/extract_last_layer_weights_for_ft.py path/to/ft/models_prefix numbe
 ```
 
 
-5. ### ScaIL (requires CPU only) todo
+5. ### ScaIL (requires CPU only)
 You should provide the following parameters:
 * dataset : name of the dataset : ilsvrc, vgg_faces, google_landmarks or cifar100
 * list_root_dir : folder containing data lists files, in this case ./data/images_list_files
