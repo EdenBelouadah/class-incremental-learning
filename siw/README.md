@@ -16,10 +16,10 @@ We conduct a thorough evaluation with four public datasets in a memoryless incre
 Results show that our method outperforms existing techniques by a large margin for large-scale datasets. 
 
 ## Paper
-The paper is accepted in BMVC2020. The link will be soon available.
+The paper is accepted in BMVC2020. Pre-print link : https://arxiv.org/pdf/2008.13710.pdf
 
 ## Data
-Data needed to reproduce the experiments from the paper will be soon available
+Data and code needed to reproduce the experiments from the paper will be soon available
 
 ## Requierements
 * Python 2.7 or python 3
