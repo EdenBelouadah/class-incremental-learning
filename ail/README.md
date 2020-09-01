@@ -13,4 +13,7 @@ Results indicate that the proposed contributions have a positive effect and redu
 
 
 ## Paper
-The paper is accepted in IPCV workshop from ECCV2020. The link will be soon available.
+The paper is accepted in IPCV workshop from ECCV2020. Pre-print link : https://arxiv.org/pdf/2008.10968.pdf
+
+
+Code and Data needed to reproduce the experiments will be soon available
