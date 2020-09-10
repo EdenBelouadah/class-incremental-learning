@@ -19,7 +19,7 @@ Results show that our method outperforms existing techniques by a large margin f
 The paper is accepted in BMVC2020. Pre-print link : https://arxiv.org/pdf/2008.13710.pdf
 
 ## Data
-Data needed to reproduce the experiments in available [here](https://drive.google.com/drive/folders/1nh_uMDFPIGeY4ZcO1lw59_4lZ74W2EDI?usp=sharing)
+Data needed to reproduce the experiments are available [here](https://drive.google.com/drive/folders/1nh_uMDFPIGeY4ZcO1lw59_4lZ74W2EDI?usp=sharing)
 
 ## How to run
 
