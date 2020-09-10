@@ -11,10 +11,39 @@ Here, imbalance effects are reduced during inference through class prediction sc
 Evaluation is done with four visual datasets and compares existing and proposed sample acquisition functions.
 Results indicate that the proposed contributions have a positive effect and reduce the gap between active and standard IL performance.
 
-https://drive.google.com/drive/folders/1ol2JuM9YMKqslTvJValAcpD0ML-W01lX?usp=sharing
 
 ## Paper
 The paper is accepted in IPCV workshop from ECCV2020. Pre-print link : https://arxiv.org/pdf/2008.10968.pdf
 
+## Data
 
-Code and Data needed to reproduce the experiments will be soon available
+Data needed to reproduce the experiments are available [here](https://drive.google.com/drive/folders/1ol2JuM9YMKqslTvJValAcpD0ML-W01lX?usp=sharing)
+
+
+## How to run
+
+### Requierements
+* Python 2.7
+* Pytorch 1.0.0
+* Numpy 1.13.0
+* SkLearn 0.19.1
+
+
+1. ### Training the first batch of classes from scratch
+
+```
+python ./codes/scratch.py ./configs/scratch.cf
+```
+
+
+2. ### Active Incremental Learning
+
+```
+python ./codes/main.py ./configs/config.cf
+```
+
+
+### Remarks. 
+1. If your dataset is different from imagenet100, cifar100, faces100 and food100, you need to compute the images mean/std used for normalization of your dataset using the training images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
+2. Please delete all the comments from the configuration files, to avoid compilation errors. 
+3. Feel free to send an email to eden.belouadah@cea.fr if there is any issue with the code.
