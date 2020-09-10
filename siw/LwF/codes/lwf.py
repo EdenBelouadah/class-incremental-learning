@@ -1,3 +1,5 @@
+# Most of this code is taken from iCaRL (Sylvestre-Alvise Rebuffi et al.)
+
 from __future__ import division
 import tensorflow as tf
 
