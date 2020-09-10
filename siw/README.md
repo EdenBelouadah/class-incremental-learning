@@ -41,21 +41,14 @@ python codes/scratch.py configs/scratch.cf
 ```
 python codes/no_mem_ft.py configs/no_mem_ft.cf
 ```
-3. ### Features extraction
+3. ### Features + Last layer parameters (weight and bias) extraction 
 
 ```
 python codes/features_extraction.py configs/features_extraction.cf
 ```
 
-4. ### Last layer parameters extraction (weight and bias)
 
-```
-python codes/extract_last_layer_weights_for_first_batch.py path/to/first/batch/model.pt model_num_classes 1 path/to/destination/dir
-python codes/extract_last_layer_weights_for_ft.py path/to/ft/models_prefix number_of_states number_of_classes_per_state path/to/destination/dir
-```
-
-
-5. ### Standardization of Initial Weights (SIW)
+4. ### Standardization of Initial Weights (SIW)
 You should provide the following parameters:
 * images_list_files_path : folder containing data lists files, in this case ./data/images_list_files
 * ft_feat_scores_path : folder containing test features extracted after training fine tuning
@@ -65,7 +58,7 @@ You should provide the following parameters:
 * S : total number of states
 * dataset : name of the dataset - ilsvrc, vgg_faces, google_landmarks or cifar100
 
-For example, for $$inFT_{siw}^{mc}$$ on CIFAR100 with 20 states, each one containing 5 classes:
+For example, for ![iFT](https://latex.codecogs.com/svg.latex?inFT_{siw}^{mc} on CIFAR100 with 20 states, each one containing 5 classes:
 ```
 python ./codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
