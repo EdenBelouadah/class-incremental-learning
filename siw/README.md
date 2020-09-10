@@ -63,7 +63,7 @@ For example, for ![inFT_siw_mc](https://latex.codecogs.com/svg.latex?inFT_{siw}^
 python ./codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
 
-for the other post processing methods (todo), just change the path to the code file, the parameters are the same. 
+for the other baselines: ![inFT_siw](https://latex.codecogs.com/svg.latex?inFT_{siw}), ![inFT_mc_l2](https://latex.codecogs.com/svg.latex?inFT_{L2}^{mc}), ![inFT_mc](https://latex.codecogs.com/svg.latex?inFT^{mc}) , ![inFT_l2](https://latex.codecogs.com/svg.latex?inFT_{L2}) and ![inFT](https://latex.codecogs.com/svg.latex?inFT), just change the path to the code file, the parameters are the same. 
 
 ### Remarks. 
 1. If your dataset is different from ILSVRC, VGG-Face2, Google Landmarks and CIFAR-100, you need to compute the images mean/std used for normalization of your dataset using the training images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
