@@ -1,0 +1,19 @@
+[lwf.py]
+datasets_mean_std_file_path = data/datasets_mean_std.txt
+################################# do not change
+batch_size = 128
+lr_old = 2.0
+lr_strat = 49, 63
+lr_factor = 5.0
+wght_decay = 0.00001
+################### information related to the dataset
+normalization_dataset_name = cifar100
+train_images_path = data/images_list_files/cifar100/train.lst
+val_images_path = data/images_list_files/cifar100/test.lst
+nb_groups = 10
+nb_cl = 10
+##########
+epochs = 70
+################### saving paths
+save_path   =  /set/here/your/path/cifar100/
+output_file_path =  /set/here/your/path/cifar100.log
