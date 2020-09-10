@@ -21,30 +21,32 @@ The paper is accepted in BMVC2020. Pre-print link : https://arxiv.org/pdf/2008.1
 ## Data
 Data and code needed to reproduce the experiments from the paper will be soon available
 
-## Requierements
+## How to run
+
+### I. FINE-TUNING (FT)
+
+#### Requierements
 * Python 2.7 or python 3
 * Pytorch 1.0.0
 * Numpy 1.13.0
 * SkLearn 0.19.1
 
 
-## How to run
-
 1. ### Training the first batch of classes from scratch
 
 ```
-python codes/scratch.py configs/scratch.cf
+python ./FT/codes/scratch.py ./FT/configs/scratch.cf
 ```
 
 2. ### Fine tuning without memory
 
 ```
-python codes/no_mem_ft.py configs/no_mem_ft.cf
+python ./FT/codes/no_mem_ft.py ./FT/configs/no_mem_ft.cf
 ```
 3. ### Features + Last layer parameters (weight and bias) extraction 
 
 ```
-python codes/features_extraction.py configs/features_extraction.cf
+python ./FT/codes/features_extraction.py ./FT/configs/features_extraction.cf
 ```
 
 
@@ -60,10 +62,52 @@ You should provide the following parameters:
 
 For example, for ![inFT_siw_mc](https://latex.codecogs.com/svg.latex?inFT_{siw}^{mc}) on CIFAR100 with 20 states, each one containing 5 classes:
 ```
-python ./codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
+python ./FT/codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
 
 for the other baselines: ![inFT_siw](https://latex.codecogs.com/svg.latex?inFT_{siw}), ![inFT_mc_l2](https://latex.codecogs.com/svg.latex?inFT_{L2}^{mc}), ![inFT_mc](https://latex.codecogs.com/svg.latex?inFT^{mc}) , ![inFT_l2](https://latex.codecogs.com/svg.latex?inFT_{L2}) and ![inFT](https://latex.codecogs.com/svg.latex?inFT), just change the path to the code file, the parameters are the same. 
+
+
+### II. Learning-without-Forgetting (LwF)
+
+#### Requierements
+* Python 2.7.9
+* Tensorflow-gpu 1.4.0
+
+
+1. ### Training the model
+
+```
+python ./LwF/codes/lwf.py ./LwF/configs/lwf.cf
+```
+3. ### Features  extraction 
+Example for CIFAR100 with 20 states.
+
+```
+python ./LwF/codes/features_extraction.py  20, 5, 0, 128, cifar100, save_path, output_dir, train_or_val, feat_or_scores, 1, 20 
+```
+
+3. ### Last layer parameters (weight and bias)  extraction 
+
+python ./LwF/codes/last_layer_params_extraction.py  20, 5, cifar100, save_path, output_dir, 1, 20
+
+
+4. ### Standardization of Initial Weights (SIW)
+You should provide the following parameters:
+* ft_feat_scores_path : folder containing test features extracted after training LwF
+* ft_weights_dir : folder containing classification layer parameters
+* K : memory size, always equal to 0.
+* P : number of classes per incremental state
+* S : total number of states
+* dataset : name of the dataset - ilsvrc, vgg_faces, google_landmarks or cifar100
+
+For example, for ![inLwF_siw_mc](https://latex.codecogs.com/svg.latex?inLwF_{siw}^{mc}) on CIFAR100 with 20 states, each one containing 5 classes:
+```
+python ./codes/inLwF_siw_mc.py ./data/feat_scores_extract_for_lwf/ ./data/weights_bias_for_lwf/ 0 5 20 cifar100
+```
+
+for the other baselines: ![inLwF_siw](https://latex.codecogs.com/svg.latex?inLwF_{siw}), ![inLwF](https://latex.codecogs.com/svg.latex?inLwF), just change the path to the code file, the parameters are the same. 
+
 
 ### Remarks. 
 1. If your dataset is different from ILSVRC, VGG-Face2, Google Landmarks and CIFAR-100, you need to compute the images mean/std used for normalization of your dataset using the training images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
