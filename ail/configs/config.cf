@@ -1,7 +1,7 @@
 [main.py]
 #############################
-balancing_AF = poor
-classical_AF = randomly
+balancing_AF = poor  # can be also: "bcore"
+classical_AF = randomly #can be also "kcenters", "entropy" or "max_margin"
 #############################
 num_workers = 4
 gpu = 0
@@ -35,5 +35,5 @@ datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
 rerun = True
 apply_th_train = False
 apply_th_val_al = True
-mode = il_al
+mode = il_al #can be also "il" for supervised learning
 saving_intermediate_models = False
