@@ -58,7 +58,7 @@ You should provide the following parameters:
 * S : total number of states
 * dataset : name of the dataset - ilsvrc, vgg_faces, google_landmarks or cifar100
 
-For example, for ![iFT](https://latex.codecogs.com/svg.latex?inFT_{siw}^{mc} on CIFAR100 with 20 states, each one containing 5 classes:
+For example, for ![inFT_siw_mc](https://latex.codecogs.com/svg.latex?inFT_{siw}^{mc}) on CIFAR100 with 20 states, each one containing 5 classes:
 ```
 python ./codes/inFT_siw_mc.py ./data/images_list_files ./data/feat_scores_extract_for_no_mem_ft/ ./data/weights_bias_for_no_mem_ft/ 0 5 20 cifar100
 ```
