@@ -1,0 +1,39 @@
+[main.py]
+#############################
+balancing_AF = poor
+classical_AF = randomly
+#############################
+num_workers = 4
+gpu = 0
+old_batch_size = 32
+new_batch_size = 32
+val_batch_size = 32
+num_epochs = 80
+lr_decay = 0.1
+lr = 0.1
+momentum = 0.9
+weight_decay = 0.0005
+patience = 10
+num_runs = 5
+#############################
+base = 10 #number of classes in the initial, non-incremental state
+P = 10 #number of classes in each incremental state
+K = 1000 #memory size
+B = 5 #budget
+T = 10 #number of states
+I = 4 #number of iterations in the AL annotation
+##############################
+normalization_dataset_name = cifar100
+first_model_load_path = /path/to/models/cifar100/cifar100_s10_batch1.pt
+dataset_files_dir = data/images_list_files/cifar100/S~10/
+data_output_dir = /path/to/destination/dir/
+algo_name = experiment_name
+models_save_dir = /path/to/models/save/dir/
+datasets_mean_std_file_path = data/images_list_files/datasets_mean_std.txt
+
+############## DO NOT MODIFY
+rerun = True
+apply_th_train = False
+apply_th_val_al = True
+mode = il_al
+saving_intermediate_models = False

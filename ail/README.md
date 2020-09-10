@@ -11,6 +11,7 @@ Here, imbalance effects are reduced during inference through class prediction sc
 Evaluation is done with four visual datasets and compares existing and proposed sample acquisition functions.
 Results indicate that the proposed contributions have a positive effect and reduce the gap between active and standard IL performance.
 
+https://drive.google.com/drive/folders/1ol2JuM9YMKqslTvJValAcpD0ML-W01lX?usp=sharing
 
 ## Paper
 The paper is accepted in IPCV workshop from ECCV2020. Pre-print link : https://arxiv.org/pdf/2008.10968.pdf
