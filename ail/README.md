@@ -17,7 +17,7 @@ The paper is accepted in IPCV workshop from ECCV2020. Pre-print link : https://a
 
 ## Data
 
-Data needed to reproduce the experiments are available [here](https://drive.google.com/drive/folders/1ol2JuM9YMKqslTvJValAcpD0ML-W01lX?usp=sharing)
+Data needed to reproduce the experiments are available [here](https://drive.google.com/drive/folders/1HDbXAsvqRtZqwryXo9YveFsrE16lj_xv?usp=sharing)
 
 
 ## How to run
