@@ -749,6 +749,6 @@ normalize = transforms.Normalize(mean=dataset_mean, std=dataset_std)
 
 print("Running on " + str(socket.gethostname()) + " | gpu " + str(gpu))
 utils.print_parameters(cp)
-assert (mode in ['il', 'il_al', 'il_al_ss'])
+assert (mode in ['il', 'il_al'])
 # start the main program
 main(I)
