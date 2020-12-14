@@ -5,8 +5,18 @@ Here, we focus on the latter, place them in a common conceptual and experimental
 
 
 ## Paper
-The paper is under review at the Elsevier's Neural Networks journal. Pre-print link : https://arxiv.org/pdf/2011.01844.pdf
+The paper is accepted for publication in the Elsevier's Neural Networks journal. Pre-print link : https://arxiv.org/pdf/2011.01844.pdf
 
-## Code and Data
+## Data
+Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/drive/folders/1lSxH3BRnuDjQBYG46wcw6HptUrkSfhS9?usp=sharing)
 
-Code and data will be soon available.
+
+## Code 
+* Codes of LUCIR, iCaRL, and BiC are mainly taken from their original repositories and adapted to our protocol.
+* ScaIL, IL2M, FT codes are available in other papers' folders.
+
+I will provide examples on how to run different codes soon. 
+Please contact me by reporting any issues with th codes, to help improve the repository. 
+eden.belouadah@cea.fr
+
+
