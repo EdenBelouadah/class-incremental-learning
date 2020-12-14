@@ -15,4 +15,4 @@
 
 
 ## Contact
-Please, if there are any missing files or codes, or if you have any questions, do not hesitate to contact me at: eden.belouadah@cea.fr or eden.belouadah@yahoo.fr.
+Please help me improve the repository by reporting any problems or missing codes/data to eden.belouadah@cea.fr or eden.belouadah@yahoo.fr.
