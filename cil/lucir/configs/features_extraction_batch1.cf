@@ -1,0 +1,12 @@
+[features_extraction_batch1.py]
+num_workers = 12
+batch_size = 128
+gpu = 0
+features_size = 512
+normalization_dataset_name = ilsvrc
+datasets_mean_std_file_path = ./data/images_list_files/datasets_mean_std.txt
+
+model_load_path = /path/to/model/ilsvrc_s10_k20000_model_0.pth
+train_images_list = ./data/images_list_files/ilsvrc/s10/separated/train/batch1
+val_images_list = ./data/images_list_files/ilsvrc/s10/separated/val/batch1
+destination_dir = /path/to/destination/dir/

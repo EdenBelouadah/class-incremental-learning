@@ -1,0 +1,11 @@
+[main.py]
+datasets_mean_std_file_path = ./data/datasets_mean_std.txt
+nb_proto = 20000
+epochs = 60
+normalization_dataset_name = ilsvrc
+nb_groups = 10
+nb_cl = 100
+save_path   = /path/to/output/dir/
+train_images_path = ./data/images_list_files/ilsvrc/train.lst
+val_images_path = ./data/images_list_files/ilsvrc/val.lst
+output_file_path = /path/to/output/log.txt

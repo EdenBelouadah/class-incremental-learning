@@ -1,0 +1,47 @@
+[main_no_herding.py]
+
+normalization_dataset_name = ilsvrc
+train_batch_size       = 128
+test_batch_size        = 50
+eval_batch_size        = 128
+base_lr                = 0.1
+lr_strat               = 30, 60
+lr_factor              = 0.1
+custom_weight_decay    = 0.0001
+custom_momentum        = 0.9
+train_file_path = ./data/images_list_files/ilsvrc/train.lst
+test_file_path = ./data/images_list_files/ilsvrc/val.lst
+###############################
+num_classes = 1000
+num_workers = 4
+B = 100
+P = 100
+last_batch_number = 10
+memory_size = 20000
+output_dir = /path/to/output/dir/
+epochs = 90
+############
+imprint_weights = True
+mimic_score = False
+less_forget = True
+mr_loss = True
+#########################
+cb_finetune = True
+ft_epochs = 20
+ft_base_lr = 0.001
+ft_lr_strat = 10
+ft_flag = 2
+############## do not change
+datasets_mean_std_file_path = ./data/images_list_files/datasets_mean_std.txt
+nb_runs = 1
+rs_ratio = 0.0
+resume = False
+T = 2
+beta=0.25
+random_seed=1993
+dist = 0.5
+K = 2
+lw_mr = 1.0
+lw_ms = 1.0
+lamda = 10.0
+adapt_lamda = True

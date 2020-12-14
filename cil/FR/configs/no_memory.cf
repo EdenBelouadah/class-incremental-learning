@@ -1,0 +1,24 @@
+[no_mem_fr_train_val.py]
+num_workers = 6
+gpu = 0
+old_batch_size = 256
+new_batch_size = 32
+test_batch_size = 4
+starting_epoch = 0
+num_epochs = 35
+lr_decay = 0.1
+lr = 0.1
+momentum = 0.9
+weight_decay = 0.0001
+patience = 5
+algo_name = ffr_ilsvrc_s10_k0
+normalization_dataset_name = ilsvrc
+datasets_mean_std_file_path = ./data/images_list_files/datasets_mean_std.txt
+K = 0
+P = 100
+dataset_files_dir = ./data/images_list_files/ilsvrc/s10/
+first_model_load_path = /path/to/basic/model/ilsvrc_s10_batch1.pt
+saving_intermediate_models = False
+models_save_dir = /path/to/output/dir/
+first_batch_number = 1
+last_batch_number = 10

@@ -1,0 +1,19 @@
+[lwf.py]
+datasets_mean_std_file_path = ./data/datasets_mean_std.txt
+#################################do not change:
+batch_size = 128
+lr_old = 1.0
+lr_strat = 20, 30, 40, 50
+lr_factor = 5.0
+wght_decay = 0.00001
+################### information related to the dataset
+normalization_dataset_name = ilsvrc
+train_images_path = ./data/images_list_files/ilsvrc/train.lst
+val_images_path = ./data/images_list_files/ilsvrc/val.lst
+nb_groups = 10
+nb_cl = 100
+##########
+epochs = 60
+################### saving paths
+save_path   = /path/to/output/dir/
+output_file_path = /path/to/output/log.txt

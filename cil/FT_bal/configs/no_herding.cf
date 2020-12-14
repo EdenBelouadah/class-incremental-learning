@@ -1,0 +1,31 @@
+[ft_bal.py]
+used_model = resnet18
+num_workers = 10
+gpu = 2
+old_batch_size=128
+new_batch_size=32
+val_batch_size=128
+starting_epoch=0
+unbalanced_num_epochs = 60
+balanced_num_epochs = 20
+step_size=10
+lr_decay=0.1
+lr=0.1
+momentum=0.9
+weight_decay=0.0005
+patience=15
+##############################
+algo_name = ft_bal_cifar100_s10_1k
+normalization_dataset_name = cifar100
+datasets_mean_std_file_path = ./data/images_list_files/datasets_mean_std.txt
+K = 1000
+unbalanced_train_files_dir = ./data/images_list_files/cifar100/s10/unbalanced/train/
+balanced_train_files_dir = ./data/images_list_files/cifar100/s10/balanced/train/
+dataset_files_dir = ./data/images_list_files/cifar100/s10
+first_model_load_path =  /path/to/basic/model/cifar100_s10_batch1.pt
+############################## DO NOT CHANGE
+saving_intermediate_models = False
+models_save_dir = /path/to/output/dir/
+##############################
+first_batch_number = 2
+last_batch_number = 10
