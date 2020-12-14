@@ -16,7 +16,7 @@ Data needed to reproduce the experiments from the paper is available [here](http
 * ScaIL, IL2M, FT codes are available in other papers' folders.
 
 I will provide examples on how to run different codes soon. 
-Please contact me by reporting any issues with th codes, to help improve the repository. 
+Please contact me by reporting any issues with the codes, to help me improve the repository. 
 eden.belouadah@cea.fr
 
 
