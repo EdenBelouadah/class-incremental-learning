@@ -10,13 +10,6 @@ The paper is accepted for publication in the Elsevier's Neural Networks journal.
 To cite this work:
 
 ```
-@InProceedings{Belouadah_2019_il2m,
-author = {Belouadah, Eden and Popescu, Adrian},
-title = {IL2M: Class Incremental Learning With Dual Memory},
-booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
-month = {October},
-year = {2019}
-} 
 
 @article{belouadah_2020_study,
   author    = {Belouadah, Eden and Popescu, Adrian},
