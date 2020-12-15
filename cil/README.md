@@ -12,7 +12,7 @@ To cite this work:
 ```
 
 @article{belouadah_2020_study,
-  author    = {Belouadah, Eden and Popescu, Adrian},
+  author    = {Eden Belouadah and Adrian Popescu and Ioannis Kanellos},
   title     = {A Comprehensive Study of Class Incremental Learning Algorithms for
                Visual Tasks},
   publisher   = {Elsevier},
