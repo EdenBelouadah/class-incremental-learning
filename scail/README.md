@@ -14,6 +14,20 @@ Evaluation is done against competitive baselines using four public datasets. Res
 ## Paper
 [[pdf]](https://arxiv.org/pdf/2001.05755.pdf)
 
+To cite this work:
+
+```
+@inproceedings{Belouadah_2020_scail,
+  author    = {Eden Belouadah and
+               Adrian Popescu},
+  title     = {ScaIL: Classifier Weights Scaling for Class Incremental Learning},
+  booktitle = {{IEEE} Winter Conference on Applications of Computer Vision, {WACV} 2020},
+  pages     = {1255--1264},
+  publisher = {{IEEE}},
+  year      = {2020},
+}
+```
+
 
 ## Data
 Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/drive/folders/1lSxH3BRnuDjQBYG46wcw6HptUrkSfhS9?usp=sharing)
