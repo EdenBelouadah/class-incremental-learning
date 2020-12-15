@@ -7,6 +7,29 @@ Here, we focus on the latter, place them in a common conceptual and experimental
 ## Paper
 The paper is accepted for publication in the Elsevier's Neural Networks journal. Pre-print link : https://arxiv.org/pdf/2011.01844.pdf
 
+To cite this work:
+
+```
+@InProceedings{Belouadah_2019_il2m,
+author = {Belouadah, Eden and Popescu, Adrian},
+title = {IL2M: Class Incremental Learning With Dual Memory},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+month = {October},
+year = {2019}
+} 
+
+@article{belouadah_2020_study,
+  author    = {Belouadah, Eden and Popescu, Adrian},
+  title     = {A Comprehensive Study of Class Incremental Learning Algorithms for
+               Visual Tasks},
+  publisher   = {Elsevier},
+  journal   = {Neural Networks},
+  year      = {2020},
+}
+
+
+```
+
 ## Data
 Data needed to reproduce the experiments from the paper is available [here](https://drive.google.com/drive/folders/1lSxH3BRnuDjQBYG46wcw6HptUrkSfhS9?usp=sharing)
 
@@ -18,8 +41,13 @@ Note that for iCaRL, we used the implementation proposed in the paper of LUCIR, 
 
 Please check the other folders of this repository for the codes of [ScaIL](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/scail), [IL2M](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/il2m), [DeeSIL](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/deesil), [FT](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/scail), and [SIW](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/siw).
 
-I will provide examples on how to run different codes soon. 
-Please contact me by reporting any issues with the codes, to help me improve the repository. 
-eden.belouadah@cea.fr
+## Requierements
+* FT, IL2M, ScaIL, SIW, LUCIR (+iCaRL) : Python 3.7.3 and Pytorch 1.1.0 
+* BiC :  Python 3.7.3 and Tensorflow 1.13.2
+* LwF : Tensorflow 1.1
+* REMIND and Deep-SLDA; please refer to the original repositories
+
+### Contact
+I rely on your feedback to improve and better present the codes of this paper. Please do not hesitate to contact me at eden.belouadah@cea.fr if you have any issues.
 
 
