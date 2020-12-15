@@ -12,8 +12,11 @@ Data needed to reproduce the experiments from the paper is available [here](http
 
 
 ## Code 
-* Codes of LUCIR, iCaRL, and BiC are mainly taken from their original repositories and adapted to our protocol.
-* ScaIL, IL2M, FT codes are available in other papers' folders.
+Some of the codes are taken from their original repositories and adapted to our protocol. Click on each algorithm to go to its corresponding code repository: [LUCIR](https://github.com/hshustc/CVPR19_Incremental_Learning), [iCaRL](https://github.com/hshustc/CVPR19_Incremental_Learning), [BiC](https://github.com/wuyuebupt/LargeScaleIncrementalLearning), [LwF](https://github.com/srebuffi/iCaRL), [REMIND](https://github.com/tyler-hayes/REMIND), [Deep-SLDA](https://github.com/tyler-hayes/Deep_SLDA).
+
+Note that for iCaRL, we used the implementation proposed in the paper of LUCIR, since it provides better performance than the original implementation. However, for LwF, we used the implementation from the original paper of iCaRL, for the same reasons.
+
+Please check the other folders of this repository for the codes of [ScaIL](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/scail), [IL2M](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/il2m), [DeeSIL](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/deesil), [FT](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/scail), and [SIW](https://github.com/EdenBelouadah/class-incremental-learning/tree/master/siw).
 
 I will provide examples on how to run different codes soon. 
 Please contact me by reporting any issues with the codes, to help me improve the repository. 
