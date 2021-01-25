@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from utils_pytorch import *
 from Utils import DataUtils
-from Utils import AverageMeter
+import AverageMeter as AverageMeter
 utils = DataUtils()
 
 def get_old_scores_before_scale(self, inputs, outputs):

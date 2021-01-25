@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from utils_pytorch import *
 from Utils import DataUtils
-from Utils import AverageMeter
+import AverageMeter as AverageMeter
 utils = DataUtils()
 
 #code for baseline1 : FT+standard distillation
