@@ -86,7 +86,7 @@ python ./codes/scail.py ilsvrc ./data/images_list_files /path/to/scail/data 10 2
 Detailed execution instructions are in 'codes/scail.py'.
 
 ### Remarks. 
-1. If your dataset is different from ILSVRC, VGG-Face2, Google Landmarks and CIFAR-100, you need to compute the images mean/std used for normalization of your dataset using the training images of the first batch of classes and add it to the file 'data/datasets_mean_std.txt'.
+1. If your dataset is different from those tested in our paper, you need to use [this code](https://github.com/EdenBelouadah/class-incremental-learning/blob/master/deesil/codes/utils/compute_images_mean_std.py) to compute the images mean/std of your dataset. The input parameter should be the list of training images of the first batch of classes. Add the computed vectors to the file 'data/datasets_mean_std.txt' to use them later for image normalization.
 2. Please delete all the comments from the configuration files, to avoid compilation errors. 
 3. Feel free to send an email to eden.belouadah@cea.fr if there is any issue with the code.
 
