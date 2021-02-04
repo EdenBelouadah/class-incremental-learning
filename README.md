@@ -15,4 +15,4 @@
 
 
 ## Contact
-Please help me improve the repository by reporting any problems or missing codes/data to eden.belouadah@cea.fr or eden.belouadah@yahoo.fr.
+Please help me improve the repository by reporting any issues about the codes and/or data.
