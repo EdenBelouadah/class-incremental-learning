@@ -15,4 +15,4 @@
 
 
 ## Contact
-Please help me improve the repository by reporting any issues about the codes and/or data.
+Please help me improve this repository by reporting any issues with the codes and data.
