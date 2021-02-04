@@ -41,6 +41,6 @@ Please check the other folders of this repository for the codes of [ScaIL](https
 * REMIND and Deep-SLDA; please refer to the original repositories
 
 ### Contact
-I rely on your feedback to improve and better present the codes of this paper. Please do not hesitate to contact me at eden.belouadah@cea.fr if you have any issues.
+I rely on your feedback to improve and better present the codes of this paper. Please do not hesitate to report any issues with the codes and data.
 
 
