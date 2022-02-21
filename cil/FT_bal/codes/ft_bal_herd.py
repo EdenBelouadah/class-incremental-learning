@@ -209,7 +209,7 @@ def compute_rebuffi_herding_faster(img_list, img_feats, exem_dir, m, file_name):
             # update the aggregate sum list with the features of the current candidate
             for nd in range(0, len(feat_candidate)):
                 aggregate_sum[nd] = aggregate_sum[nd]+feat_candidate[nd]
-        for img_path, dist in sorted(ranked_exemplars.iteritems(), key=lambda (k,v): (v,k), reverse=True):
+        for img_path, dist in sorted(ranked_exemplars.iteritems(), key=lambda (k,v): (v,k), reverse=False):
             to_out = img_path+" "+ordered_labels[ll]
             f_rebuffi.write(to_out+"\n")
         time_stop = time.time()
